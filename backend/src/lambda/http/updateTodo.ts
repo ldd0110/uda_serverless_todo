@@ -16,7 +16,7 @@ export const handler = middy(
 
 
     const userId = getUserId(event)
-    const todo = await getTodo(userId)
+    const todo = await getTodo(todoId, userId)
 
     if (todo == []) {
       return {

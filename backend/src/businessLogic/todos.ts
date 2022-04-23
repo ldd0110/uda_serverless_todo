@@ -14,8 +14,8 @@ const todosAccess = new TodosAccess()
 export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
   return todosAccess.getTodosForUser(userId)
 }
-export async function getTodo(todoId: string): Promise<TodoItem[]> {
-  return todosAccess.todoExists(todoId)
+export async function getTodo(todoId: string, userId: string): Promise<TodoItem[]> {
+  return todosAccess.todoExists(todoId, userId)
 }
 
 export async function createAttachmentPresignedUrl(todoId: string, userId: string): Promise<string> {

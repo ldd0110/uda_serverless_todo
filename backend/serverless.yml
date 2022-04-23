@@ -105,6 +105,7 @@ functions:
         Action:
           - dynamodb:UpdateItem
           - dynamodb:PutItem
+          - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
 
   # TODO: Configure this function

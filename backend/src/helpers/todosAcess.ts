@@ -15,12 +15,13 @@ export class TodosAccess {
         private readonly docClient: DocumentClient = createDynamoDBClient(),
         private readonly todosTable = process.env.TODOS_TABLE) {
     }
-    async todoExists(todoId: string) {
+    async todoExists(todoId: string, userId: string) {
         const result = await this.docClient.query({
             TableName: this.todosTable,
-            KeyConditionExpression: 'todoId = :todoId',
+            KeyConditionExpression: 'todoId = :todoId AND userId = :userId',
             ExpressionAttributeValues: {
-                ':todoId': todoId
+                ':todoId': todoId,
+                ':userId':userId
             }
           }).promise()
 
